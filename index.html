@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmed Abdullah | Senior Software Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <meta
+      name="description"
+      content="Ahmed Abdullah — Senior Software Engineer, Backend Architect, and Team Lead (~30 backend engineers). 8+ years building scalable PHP/Laravel systems in FinTech, E-commerce, and more."
+    />
+    <meta name="keywords" content="Ahmed Abdullah, PHP Developer, Laravel, Team Lead, Backend Architect, Mansoura, Egypt, AAIT" />
+    <meta name="author" content="Ahmed Abdullah" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmed Abdullah | Senior Software Engineer" />
+    <meta property="og:description" content="Senior Software Engineer, Backend Architect, and Team Lead specializing in Laravel and high-performance backends." />
+    <meta property="og:image" content="avatar.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Ahmed Abdullah | Senior Software Engineer" />
+    <meta property="twitter:description" content="Senior Software Engineer, Backend Architect, and Team Lead specializing in Laravel and high-performance backends." />
+    <meta property="twitter:image" content="avatar.jpg" />
+
+    <!-- Theme Color for mobile browsers -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ahmed Abdullah",
+      "image": "avatar.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmed-abdullah-49b6a8170/"
+      ],
+      "jobTitle": "Senior Software Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Awamer Alshabaka (AAIT)"
+      },
+      "description": "Senior PHP Developer and Team Lead for around 30 backend engineers; 8+ years in Laravel architecture, system design, and scalable backend delivery."
+    }
+    </script>
+
+    <style>
+      :root {
+        --bg-dark: #0f172a;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --primary: #ff8664;
+        --text-main: #f8fafc;
+        --glass-blur: blur(12px);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      body.light-mode {
+        --bg-dark: #f8fafc;
+        --bg-card: rgba(255, 255, 255, 0.8);
+        --text-main: #0f172a;
+        --glass-border: rgba(0, 0, 0, 0.1);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: var(--glass-blur);
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(to right, var(--primary), #38bdf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 5%;
+      }
+      .hero-img-container {
+        width: 200px;
+        height: 200px;
+        margin-top: 8em;
+        position: relative;
+      }
+      .hero img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--bg-dark);
+      }
+    </style>
+    <link rel="stylesheet" href="index.min.css" />
+    <style>
+      /* Awamer / AAIT logo in nav */
+      nav .logo.nav-brand {
+        display: flex;
+        align-items: center;
+        background: none;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
+        text-decoration: none;
+        line-height: 0;
+      }
+      nav .logo.nav-brand img {
+        height: 42px;
+        width: auto;
+        max-width: 168px;
+        object-fit: contain;
+        border-radius: 8px;
+        background: #fff;
+        padding: 3px 8px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      body.light-mode nav .logo.nav-brand img {
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+      }
+      /* Awamer logo in timeline cards (taller stacked mark) */
+      #experience .timeline-content img.company-logo.aait-logo {
+        max-width: 150px;
+        max-height: 64px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        padding: 6px 10px;
+        background: #fff;
+        border-radius: 10px;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Compact footer (overrides index.min.css) */
+      footer.site-footer {
+        padding: 1.1rem 4%;
+        text-align: center;
+        border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+        background: rgba(15, 23, 42, 0.45);
+        backdrop-filter: blur(10px);
+      }
+      body.light-mode footer.site-footer {
+        background: rgba(248, 250, 252, 0.75);
+        border-top-color: rgba(15, 23, 42, 0.08);
+      }
+      footer.site-footer .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+      footer.site-footer .chakra-button {
+        padding: 0.45rem;
+        border-radius: 10px;
+        min-width: 0;
+      }
+      footer.site-footer .chakra-button svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+      footer.site-footer .footer-note {
+        margin-top: 0.65rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        color: var(--text-muted, #a0a0a0);
+        opacity: 0.9;
+      }
+      @media (max-width: 768px) {
+        footer.site-footer {
+          padding: 0.9rem 5%;
+        }
+      }
+
+      /* Timeline (Professional Journey) — clearer rail, nodes & card bridges */
+      #experience .timeline {
+        padding: 2.75rem 0 3.25rem;
+      }
+      #experience .timeline::after {
+        width: 4px;
+        margin-left: -2px;
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          var(--primary, #feba3b) 0%,
+          var(--accent-pink, #d33de0) 52%,
+          var(--accent-blue, #38bdf8) 100%
+        );
+        box-shadow:
+          0 0 18px rgba(254, 186, 59, 0.28),
+          0 0 36px rgba(56, 189, 248, 0.12);
+        z-index: 0;
+      }
+      #experience .timeline-item {
+        z-index: 1;
+      }
+      #experience .timeline-item::after {
+        width: 26px;
+        height: 26px;
+        border-width: 3px;
+        top: 18px;
+        box-shadow:
+          0 0 0 3px rgba(15, 17, 21, 0.92),
+          0 0 16px rgba(254, 186, 59, 0.42);
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          border-color 0.25s ease;
+      }
+      #experience .timeline-item.left::after {
+        right: -13px;
+      }
+      #experience .timeline-item.right::after {
+        left: -13px;
+      }
+      #experience .timeline-item:hover::after {
+        transform: scale(1.1);
+        border-color: var(--accent-blue, #38bdf8);
+        box-shadow:
+          0 0 0 3px rgba(15, 17, 21, 0.95),
+          0 0 22px rgba(56, 189, 248, 0.5);
+      }
+      body.light-mode #experience .timeline-item::after {
+        box-shadow:
+          0 0 0 3px rgba(248, 250, 252, 0.95),
+          0 0 16px rgba(254, 186, 59, 0.35);
+      }
+      /* Horizontal stub linking card ↔ central rail */
+      #experience .timeline-item.left .timeline-content::before,
+      #experience .timeline-item.right .timeline-content::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        height: 3px;
+        border-radius: 3px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      #experience .timeline-item.left .timeline-content::before {
+        right: -26px;
+        width: 26px;
+        background: linear-gradient(
+          90deg,
+          rgba(254, 186, 59, 0.2),
+          rgba(254, 186, 59, 0.95)
+        );
+      }
+      #experience .timeline-item.right .timeline-content::before {
+        left: -26px;
+        width: 26px;
+        background: linear-gradient(
+          270deg,
+          rgba(56, 189, 248, 0.2),
+          rgba(56, 189, 248, 0.95)
+        );
+      }
+
+      /* Nexon card: balanced store + GitHub actions */
+      .project-links--nexon {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+        margin-top: 0.35rem;
+      }
+      .project-links--nexon .btn {
+        flex: 1 1 calc(33.333% - 0.5rem);
+        min-width: min(140px, 100%);
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 0.65rem 1rem;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+      .project-links--nexon .btn-nexon-play {
+        border: 1px solid rgba(52, 168, 83, 0.45);
+        color: #bbf7d0;
+        background: rgba(15, 23, 42, 0.6);
+      }
+      .project-links--nexon .btn-nexon-play:hover {
+        border-color: #34a853;
+        color: #fff;
+        background: rgba(52, 168, 83, 0.18);
+        transform: translateY(-2px);
+      }
+      .project-links--nexon .btn-nexon-apple {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #f1f5f9;
+        background: rgba(255, 255, 255, 0.07);
+      }
+      .project-links--nexon .btn-nexon-apple:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-2px);
+      }
+      .project-links--nexon .btn-nexon-github {
+        border: 1px solid rgba(139, 148, 158, 0.45);
+        color: #e6edf3;
+        background: rgba(110, 118, 129, 0.12);
+      }
+      .project-links--nexon .btn-nexon-github:hover {
+        border-color: #8b949e;
+        color: #fff;
+        background: rgba(110, 118, 129, 0.22);
+        transform: translateY(-2px);
+      }
+      body.light-mode .project-links--nexon .btn-nexon-play {
+        color: #166534;
+        background: rgba(240, 253, 244, 0.9);
+      }
+      body.light-mode .project-links--nexon .btn-nexon-apple {
+        color: #0f172a;
+        background: rgba(248, 250, 252, 0.95);
+      }
+      body.light-mode .project-links--nexon .btn-nexon-github {
+        color: #1e293b;
+        background: rgba(241, 245, 249, 0.95);
+      }
+      .project-card--nexon .project-img {
+        padding: 1.25rem;
+      }
+      .project-card--nexon .project-img img {
+        width: 132px;
+        height: 132px;
+        object-fit: cover;
+        border-radius: 26%;
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.35);
+      }
+      body.light-mode .project-card--nexon .project-img img {
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+      }
+
+      @media (max-width: 768px) {
+        #experience .timeline-item.left .timeline-content::before,
+        #experience .timeline-item.right .timeline-content::before {
+          display: none;
+        }
+        #experience .timeline-item.left::after,
+        #experience .timeline-item.right::after {
+          left: 21px !important;
+          right: auto !important;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="avatar.jpg"
+    />
+  </head>
+  <body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <nav>
+      <a href="#home" class="logo nav-brand" aria-label="Awamer Alshabaka — Home">
+        
+      </a>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-img-container">
+          <img
+            src="avatar.jpg"
+            alt="Professional portrait of Ahmed Abdullah"
+            loading="eager"
+            width="200"
+            height="200"
+          />
+        </div>
+        <h1>Ahmed Abdullah</h1>
+        <p style="max-width: 800px; margin: 1.5rem auto">
+          Senior Software Engineer, Backend Architect, and Team Lead with 8+
+          years of experience designing high-performance, scalable backends in
+          PHP and Laravel. As Team Lead I oversee around <strong>30 backend
+          engineers</strong>, with a focus on clean architecture, SOLID
+          principles, code quality, and delivery from requirements to
+          production. Based in Mansoura, Egypt — connect on
+          <a
+            href="https://www.linkedin.com/in/ahmed-abdullah-49b6a8170/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ahmed Abdullah on LinkedIn"
+            style="color: #0a66c2; font-weight: 600"
+            >LinkedIn</a
+          >.
+        </p>
+        <div class="hero-badges">
+          <div class="badge"><i class="fab fa-laravel"></i> Laravel</div>
+          <div class="badge"><i class="fab fa-php"></i> PHP</div>
+          <div class="badge"><i class="fas fa-database"></i> MySQL</div>
+          <div class="badge"><i class="fab fa-node-js"></i> Node.js</div>
+          <div class="badge"><i class="fas fa-network-wired"></i> Architecture</div>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary"
+            ><i class="fas fa-rocket"></i> View My Work</a
+          >
+          <a
+            href="Ahmed_Abdullah_CV.pdf"
+            class="btn btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open Ahmed Abdullah CV (PDF)"
+            ><i class="fas fa-file-pdf"></i> Open CV</a
+          >
+        </div>
+      </section>
+
+      <!-- Skills from LinkedIn profile (curated) -->
+      <section id="skills">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h4><i class="fas fa-code"></i> Stack &amp; engineering</h4>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fab fa-php"></i> PHP &amp; OOP</div>
+              <div class="skill-item"><i class="fab fa-laravel"></i> Laravel</div>
+              <div class="skill-item"><i class="fas fa-file-code"></i> Native PHP</div>
+              <div class="skill-item"><i class="fas fa-database"></i> MySQL &amp; relational DBs</div>
+              <div class="skill-item"><i class="fas fa-plug"></i> REST &amp; APIs</div>
+              <div class="skill-item"><i class="fas fa-puzzle-piece"></i> Third-party APIs</div>
+              <div class="skill-item"><i class="fas fa-globe"></i> Web development</div>
+              <div class="skill-item"><i class="fas fa-server"></i> Backend development</div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4><i class="fas fa-drafting-compass"></i> Architecture &amp; quality</h4>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fas fa-sitemap"></i> System architecture</div>
+              <div class="skill-item"><i class="fas fa-layer-group"></i> Software engineering</div>
+              <div class="skill-item"><i class="fas fa-check-double"></i> Clean code &amp; SOLID</div>
+              <div class="skill-item"><i class="fas fa-clipboard-check"></i> Code review &amp; standards</div>
+              <div class="skill-item"><i class="fas fa-tachometer-alt"></i> Performance tuning</div>
+              <div class="skill-item"><i class="fas fa-search"></i> Technical SEO</div>
+              <div class="skill-item"><i class="fas fa-tools"></i> Legacy systems &amp; auditing</div>
+              <div class="skill-item"><i class="fas fa-project-diagram"></i> Schema design</div>
+              <div class="skill-item"><i class="fas fa-shield-alt"></i> Software maintainability</div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4><i class="fas fa-briefcase"></i> Domains &amp; leadership</h4>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fas fa-shopping-cart"></i> E-commerce platforms</div>
+              <div class="skill-item"><i class="fas fa-store"></i> Multi-vendor &amp; marketplaces</div>
+              <div class="skill-item"><i class="fas fa-boxes"></i> Inventory &amp; checkout</div>
+              <div class="skill-item"><i class="fas fa-graduation-cap"></i> LMS &amp; online learning (EdTech)</div>
+              <div class="skill-item"><i class="fas fa-truck"></i> Logistics &amp; delivery tracking</div>
+              <div class="skill-item"><i class="fas fa-credit-card"></i> Payment gateways &amp; processing</div>
+              <div class="skill-item"><i class="fas fa-heartbeat"></i> Healthcare &amp; clinic management</div>
+              <div class="skill-item"><i class="fas fa-calendar-check"></i> Booking engines</div>
+              <div class="skill-item"><i class="fas fa-hand-holding-heart"></i> NGO &amp; donation management</div>
+              <div class="skill-item"><i class="fas fa-users"></i> Team lead (~30 backend engineers)</div>
+              <div class="skill-item"><i class="fas fa-comments"></i> Stakeholders &amp; requirements</div>
+              <div class="skill-item"><i class="fas fa-tasks"></i> Project management &amp; delivery</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="timeline">
+          <!-- AAIT Team Lead -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <img
+                src="aait_logo.jpg"
+                alt="Awamer Alshabaka (AAIT)"
+                class="company-logo aait-logo"
+                loading="lazy"
+                width="140"
+                height="56"
+              />
+              <h3>Awamer Alshabaka (AAIT)</h3>
+              <span class="job-title">Team Lead</span>
+              <span class="period">2023 — Present</span>
+              <p>
+                Mansoura, Egypt. Leading a backend organisation of about
+                <strong>30 engineers</strong> across FinTech, E-commerce, and
+                enterprise delivery.
+              </p>
+              <ul>
+                <li>Team Lead for ~30 backend developers: mentoring, staffing, code review, and architectural alignment across squads.</li>
+                <li>Designed scalable architectures for complex FinTech and E-commerce systems handling millions of transactions.</li>
+                <li>Reduced technical debt through design patterns and systematic refactoring of legacy systems.</li>
+                <li>Bridged stakeholders and engineering, turning business goals into reliable technical roadmaps.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- AAIT Senior Software Engineer -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <img
+                src="aait_logo.jpg"
+                alt="Awamer Alshabaka (AAIT)"
+                class="company-logo aait-logo"
+                loading="lazy"
+                width="140"
+                height="56"
+              />
+              <h3>Awamer Alshabaka (AAIT)</h3>
+              <span class="job-title">Senior Software Engineer</span>
+              <span class="period">2018 — 2023</span>
+              <p>End-to-end ownership across logistics, healthcare, EdTech, E-commerce, and FinTech.</p>
+              <ul>
+                <li>Delivered 100+ production projects with full lifecycle ownership.</li>
+                <li>Built LMS platforms with live streaming and virtual classrooms (20K+ concurrent users).</li>
+                <li>Developed logistics systems with real-time tracking, routing, and warehouse management.</li>
+                <li>Improved Core Web Vitals by 40–60% through performance tuning and technical SEO.</li>
+                <li>Shipped high-availability backends at 10K+ RPS with sub-100ms responses.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Freelance -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="logo-placeholder" aria-hidden="true">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3>Freelance (Self-Employed)</h3>
+              <span class="job-title">PHP Web Developer &amp; System Architect</span>
+              <span class="period">Sep 2018 — Oct 2022</span>
+              <p>Remote — custom backends and marketplace architectures for global clients.</p>
+              <ul>
+                <li>Architected Laravel and native PHP solutions following SOLID and clean architecture.</li>
+                <li>Built multi-vendor marketplaces with Stripe, PayPal, and inventory sync.</li>
+                <li>Designed MySQL schemas and optimizations for 100K+ daily transactions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Highlights from professional CV -->
+      <section id="projects">
+        <h2 class="section-title">Key systems &amp; domains</h2>
+        <div class="project-grid">
+          <div class="project-card project-card--nexon">
+            <div class="project-img">
+              <img
+                src="nexon_app_icon.webp"
+                alt="Nexon app icon"
+                width="132"
+                height="132"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Nexon Oil (NEXON)</h3>
+              <p>
+                Loyalty and rewards platform (Laravel + Vue) for automotive
+                oil products at partner stations: QR scanning turns into points,
+                leaderboard, reward catalog &amp; redemption, settlements and
+                transaction tracking, full admin dashboard (clients, products,
+                rewards, reports, notifications, settings), REST APIs for
+                mobile clients, real-time updates with Node.js + Socket.IO, plus
+                FCM push and SMS. Operates at serious scale: the product manages
+                <strong>more than 5 million</strong> QR codes, with daily traffic
+                regularly exceeding <strong>100,000</strong> requests handled
+                end-to-end.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">Laravel</span>
+                <span class="tool-tag">Vue</span>
+                <span class="tool-tag">Node.js</span>
+                <span class="tool-tag">Socket.IO</span>
+                <span class="tool-tag">FCM</span>
+                <span class="tool-tag">SMS</span>
+              </div>
+              <div class="project-links project-links--nexon">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.aait.flutter.nexon&amp;hl=ar"
+                  class="btn btn-nexon-play"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Nexon on Google Play"
+                  ><i class="fab fa-google-play"></i> Google Play</a
+                >
+                <a
+                  href="https://apps.apple.com/us/app/nexon/id6738390830"
+                  class="btn btn-nexon-apple"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Nexon on the App Store"
+                  ><i class="fab fa-apple"></i> App Store</a
+                >
+                <a
+                  href="https://github.com"
+                  class="btn btn-nexon-github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub repository (set your repo URL in index.html)"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img"><i class="fas fa-store"></i></div>
+            <div class="project-content">
+              <h3>Multi-vendor marketplaces</h3>
+              <p>
+                20+ marketplace-style platforms with logistics, warehouse
+                integration, dynamic pricing, and shipment tracking — order flows
+                tuned for high daily volume.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">Laravel</span>
+                <span class="tool-tag">MySQL</span>
+                <span class="tool-tag">Payments</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact" class="btn btn-outline">Discuss</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img"><i class="fas fa-gavel"></i></div>
+            <div class="project-content">
+              <h3>Real-time bidding &amp; auctions</h3>
+              <p>
+                Hybrid Laravel + Node.js stacks with WebSocket bidding, sub-100ms
+                bid handling, and event-driven updates for concurrent users.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">Node.js</span>
+                <span class="tool-tag">WebSockets</span>
+                <span class="tool-tag">Laravel</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact" class="btn btn-outline">Discuss</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img"><i class="fas fa-gift"></i></div>
+            <div class="project-content">
+              <h3>Loyalty &amp; promotions at scale</h3>
+              <p>
+                Large-scale loyalty with QR flows, points redemption, and bulk
+                promo codes — engineered for massive day-one load and sustained
+                high transaction rates.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">High load</span>
+                <span class="tool-tag">API design</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact" class="btn btn-outline">Discuss</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img"><i class="fas fa-truck"></i></div>
+            <div class="project-content">
+              <h3>Delivery &amp; logistics</h3>
+              <p>
+                End-to-end delivery ecosystems with live GPS, ETA calculation,
+                and driver–customer communication for very high daily delivery
+                counts.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">Laravel</span>
+                <span class="tool-tag">Node.js</span>
+                <span class="tool-tag">Maps / GPS</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact" class="btn btn-outline">Discuss</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img"><i class="fas fa-utensils"></i></div>
+            <div class="project-content">
+              <h3>Food ordering &amp; service marketplaces</h3>
+              <p>
+                Talabat-style ordering stacks plus 20+ broader service
+                marketplaces with matching logic and secure payments.
+              </p>
+              <div class="project-tools">
+                <span class="tool-tag">Ordering</span>
+                <span class="tool-tag">Realtime</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact" class="btn btn-outline">Discuss</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Education (from CV) -->
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="cert-gallery">
+          <div class="cert-card project-card" style="cursor: default; max-width: 520px; margin: 0 auto">
+            <div class="project-img" style="height: 140px">
+              <i class="fas fa-graduation-cap" style="font-size: 3.5rem; opacity: 0.35"></i>
+            </div>
+            <div class="project-content" style="text-align: center">
+              <h3>Bachelor of Computers and Information</h3>
+              <p style="margin-top: 0.75rem; color: var(--text-muted, #a0a0a0)">
+                Mansoura University · 2012 — 2017
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" style="background: rgba(15, 23, 42, 0.3)">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+          <div class="contact-info" style="max-width: 640px; margin: 0 auto">
+            <p>
+              Open to senior backend roles, architecture discussions, and
+              long-term product collaborations. Reach out by email, WhatsApp, or
+              LinkedIn.
+            </p>
+            <div class="contact-methods">
+              <a href="mailto:aa926626@gmail.com" class="badge">
+                <i class="fas fa-envelope"></i> aa926626@gmail.com
+              </a>
+              <a
+                href="https://wa.me/201033323110"
+                class="badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-whatsapp"></i> 01033323110
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ahmed-abdullah-49b6a8170/"
+                class="badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-linkedin"></i> linkedin.com/in/ahmed-abdullah-49b6a8170
+              </a>
+              <div class="badge">
+                <i class="fas fa-map-marker-alt"></i> Mansoura, Egypt
+              </div>
+            </div>
+
+            <div class="hub-card" style="margin-top: 3rem">
+              <div class="hub-header">
+                <div class="hub-icon" style="background: #0a66c2">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <h3>Professional profile</h3>
+              </div>
+              <div class="hub-details">
+                <p>
+                  Full career history and recommendations on LinkedIn.
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/ahmed-abdullah-49b6a8170/"
+                  class="btn btn-primary"
+                  style="width: 100%"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-linkedin"></i> View LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <a
+      href="https://wa.me/201033323110"
+      class="whatsapp-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Contact me on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div
+      class="theme-switcher"
+      onclick="toggleTheme()"
+      title="Toggle Dark/Light Mode"
+    >
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <footer class="site-footer">
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/ahmed-abdullah-49b6a8170/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ahmed Abdullah on LinkedIn"
+        >
+          <button
+            type="button"
+            class="chakra-button"
+            aria-label="LinkedIn Profile"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              height="18"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              ></path>
+            </svg>
+          </button>
+        </a>
+        <a href="mailto:aa926626@gmail.com" target="_blank" rel="noreferrer">
+          <button
+            type="button"
+            class="chakra-button"
+            aria-label="email"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              height="18"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+              ></path>
+            </svg>
+          </button>
+        </a>
+        <a href="https://wa.me/201033323110" target="_blank" rel="noreferrer">
+          <button
+            type="button"
+            class="chakra-button"
+            aria-label="whatsapp"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              height="18"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+              ></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+      <p class="footer-note">Ahmed Abdullah · Team Lead, backend architecture</p>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+      // Smooth scroll revealing animations
+      ScrollReveal().reveal(
+        ".hero-img-container, .hero h1, .hero p, .hero-badges",
+        {
+          delay: 200,
+          distance: "50px",
+          origin: "bottom",
+          duration: 1000,
+          interval: 100,
+        },
+      );
+
+      ScrollReveal().reveal(".section-title", {
+        delay: 200,
+        distance: "30px",
+        origin: "left",
+      });
+
+      ScrollReveal().reveal(".exp-card, .project-card, .cert-card, .youtube-card", {
+        delay: 300,
+        distance: "40px",
+        origin: "bottom",
+        interval: 150,
+      });
+
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+      }
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.querySelector("i").classList.toggle("fa-bars");
+        menuToggle.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.querySelector("i").classList.add("fa-bars");
+          menuToggle.querySelector("i").classList.remove("fa-times");
+        });
+      });
+
+      // Simple smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const id = this.getAttribute("href");
+          if (!id || id === "#") return;
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+    </script>
+  </body>
+</html>
