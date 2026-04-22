@@ -655,24 +655,55 @@ var cwShell = document.getElementById('cw-shell');
     const el=document.getElementById(id);
     if(!el)return;
     el.style.touchAction='none';
-    el.addEventListener('pointerdown',function(e){
-      if(e.pointerType==='mouse'&&e.button!==0)return;
-      e.preventDefault();
+    function setDown(e){
+      if(e) e.preventDefault();
       keys[key]=true;
-      try{if(typeof el.setPointerCapture==='function')el.setPointerCapture(e.pointerId);}catch(_){}
-    },{passive:false});
-    el.addEventListener('pointerup',function(e){
+    }
+    function setUp(e){
+      if(e) e.preventDefault();
       keys[key]=false;
-      try{if(el.releasePointerCapture&&el.hasPointerCapture(e.pointerId))el.releasePointerCapture(e.pointerId);}catch(_){}
-    });
-    el.addEventListener('pointercancel',function(){ keys[key]=false; });
+    }
+    if (window.PointerEvent) {
+      el.addEventListener('pointerdown',function(e){
+        if(e.pointerType==='mouse'&&e.button!==0)return;
+        setDown(e);
+        try{if(typeof el.setPointerCapture==='function')el.setPointerCapture(e.pointerId);}catch(_){}
+      },{passive:false});
+      el.addEventListener('pointerup',function(e){
+        setUp(e);
+        try{if(el.releasePointerCapture&&el.hasPointerCapture(e.pointerId))el.releasePointerCapture(e.pointerId);}catch(_){}
+      });
+      el.addEventListener('pointercancel',function(e){ setUp(e); });
+    } else {
+      el.addEventListener('touchstart', setDown, { passive: false });
+      el.addEventListener('touchend', setUp, { passive: false });
+      el.addEventListener('touchcancel', setUp, { passive: false });
+      el.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        setDown(e);
+      });
+      el.addEventListener('mouseup', setUp);
+      el.addEventListener('mouseleave', setUp);
+    }
   }
   hold('btn-left','ArrowLeft');
   hold('btn-right','ArrowRight');
   var fb=document.getElementById('btn-fire');
   if(fb){
     fb.style.touchAction='none';
-    fb.addEventListener('pointerdown',function(e){e.preventDefault();fire();},{passive:false});
+    function fireTap(e){
+      if(e) e.preventDefault();
+      fire();
+    }
+    if (window.PointerEvent) {
+      fb.addEventListener('pointerdown', fireTap, {passive:false});
+    } else {
+      fb.addEventListener('touchstart', fireTap, { passive: false });
+      fb.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        fireTap(e);
+      });
+    }
   }
 
   // ── START ─────────────────────────────────────────
@@ -708,6 +739,20 @@ var cwShell = document.getElementById('cw-shell');
           },
           { passive: false }
         );
+      } else {
+        el.addEventListener(
+          "touchstart",
+          function (e) {
+            e.preventDefault();
+            invoke();
+          },
+          { passive: false }
+        );
+        el.addEventListener("mousedown", function (e) {
+          if (e.button !== 0) return;
+          e.preventDefault();
+          invoke();
+        });
       }
       el.addEventListener("click", function () {
         invoke();

@@ -49,6 +49,65 @@
     }
 
     var html = "";
+    if (PORTFOLIO.featuredSkillProject) {
+      var f = PORTFOLIO.featuredSkillProject;
+      html += '<div class="col-12 mb-4">';
+      html += '  <article class="glass-card skill-feature-card h-100">';
+      if (f.badge) {
+        html += '    <span class="skill-feature-card__badge">' + escapeHtml(f.badge) + "</span>";
+      }
+      html += '    <div class="skill-feature-card__head">';
+      html +=
+        '      <h3 class="skill-feature-card__title"><i class="bi bi-pin-angle-fill me-2" aria-hidden="true"></i>' +
+        escapeHtml(f.title || "") +
+        "</h3>";
+      html += '      <p class="skill-feature-card__subtitle">' + escapeHtml(f.subtitle || "") + "</p>";
+      html += '      <p class="skill-feature-card__desc">' + escapeHtml(f.description || "") + "</p>";
+      html += "    </div>";
+      html += '    <div class="skill-feature-card__grid">';
+      html += '      <div class="skill-feature-card__col">';
+      html += '        <p class="skill-feature-card__label">Stack</p>';
+      html += '        <div class="skill-feature-card__chips">';
+      (Array.isArray(f.stack) ? f.stack : []).forEach(function (item) {
+        html += '<span class="skill-feature-chip">' + escapeHtml(item) + "</span>";
+      });
+      html += "        </div>";
+      html += '        <p class="skill-feature-card__label mt-3">Packages</p>';
+      html += '        <div class="skill-feature-card__chips">';
+      (Array.isArray(f.packages) ? f.packages : []).forEach(function (item) {
+        html += '<span class="skill-feature-chip skill-feature-chip--muted">' + escapeHtml(item) + "</span>";
+      });
+      html += "        </div>";
+      html += "      </div>";
+      html += '      <div class="skill-feature-card__col">';
+      html += '        <p class="skill-feature-card__label">What\'s included</p>';
+      html += '        <ul class="skill-feature-list">';
+      (Array.isArray(f.includes) ? f.includes : []).forEach(function (item) {
+        html +=
+          '          <li><span class="skill-feature-list__check" aria-hidden="true">&#9989;</span>' +
+          "<span>" +
+          escapeHtml(item) +
+          "</span></li>";
+      });
+      html += "        </ul>";
+      html += "      </div>";
+      html += "    </div>";
+      html += '    <div class="skill-feature-card__foot">';
+      if (f.github) {
+        html +=
+          '      <a class="btn btn-sm btn-glass skill-feature-card__link" href="' +
+          escapeAttr(f.github) +
+          '" target="_blank" rel="noopener noreferrer">' +
+          escapeHtml(f.githubLabel || "GitHub") +
+          "</a>";
+      }
+      if (f.note) {
+        html += '      <p class="skill-feature-card__note">' + escapeHtml(f.note) + "</p>";
+      }
+      html += "    </div>";
+      html += "  </article>";
+      html += "</div>";
+    }
     $.each(PORTFOLIO.skillsByCategory, function (category, items) {
       html += '<div class="col-lg-4 col-md-6 mb-4">';
       html += '  <div class="glass-card skill-card h-100">';

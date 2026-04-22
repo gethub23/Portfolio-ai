@@ -14,6 +14,27 @@ window.PORTFOLIO = {
   },
   /** Legacy typing hook (hero stack is static); terminal may still echo this list */
   typingTerms: ["Laravel · Node.js · PHP · MySQL · Redis · WebSockets"],
+  featuredSkillProject: {
+    badge: "OPEN SOURCE",
+    title: "Laravel Project Base",
+    subtitle: "My personal starter — cloned at the start of every new project",
+    description:
+      "A production-ready Laravel 11 + PHP 8.2 fullstack starter with versioned API, reusable Admin panel, and clean architecture patterns baked in from day one.",
+    stack: ["Laravel 11", "PHP 8.2", "Vite", "Tailwind v4", "MySQL", "Redis", "Queue"],
+    packages: ["Spatie Media", "Laravel Translatable", "Maatwebsite Excel", "PHPWord"],
+    includes: [
+      "Versioned API (v1 auto-routed, ready for v2)",
+      "Admin Panel (Auth, Users, Roles, Notifications, Settings)",
+      "CRUD with soft delete, bulk delete, block/unblock, filters, export",
+      "Thin Controllers + Services + Form Requests",
+      "Unified response Traits",
+      "i18n + Media support from day one",
+      "composer dev — server + queue + vite in one command",
+    ],
+    github: "https://github.com/gethub23/my-project-base",
+    githubLabel: "View on GitHub",
+    note: "This base saves me 2–3 days on every new project.",
+  },
   skillsByCategory: {
     Languages: [
       { name: "PHP (Advanced OOP)", level: "advanced" },

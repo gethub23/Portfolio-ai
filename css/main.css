@@ -646,6 +646,193 @@ body::before {
   color: var(--text);
 }
 
+.skill-feature-card {
+  position: relative;
+  border-color: rgba(0, 200, 150, 0.4);
+  background: linear-gradient(145deg, rgba(8, 16, 24, 0.92), rgba(6, 13, 20, 0.9));
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 200, 150, 0.2),
+    0 0 34px rgba(0, 200, 150, 0.14);
+  overflow: hidden;
+}
+
+.skill-feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 18% 8%, rgba(0, 200, 150, 0.11), transparent 48%);
+}
+
+.skill-feature-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(183, 255, 234, 0.95);
+  border: 1px solid rgba(0, 200, 150, 0.45);
+  background: rgba(0, 200, 150, 0.14);
+}
+
+.skill-feature-card__head,
+.skill-feature-card__grid,
+.skill-feature-card__foot {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-feature-card__title {
+  font-size: 1.2rem;
+  margin: 0 8rem 0.35rem 0;
+}
+
+.skill-feature-card__subtitle {
+  margin-bottom: 0.55rem;
+  color: rgba(185, 249, 231, 0.9);
+  font-weight: 600;
+}
+
+.skill-feature-card__desc {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  max-width: 60rem;
+}
+
+.skill-feature-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.3rem;
+}
+
+.skill-feature-card__label {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(188, 255, 236, 0.86);
+}
+
+.skill-feature-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.58rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(0, 200, 150, 0.36);
+  background: rgba(0, 200, 150, 0.1);
+  color: rgba(208, 255, 242, 0.95);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.skill-feature-chip--muted {
+  border-color: rgba(26, 125, 255, 0.32);
+  background: rgba(26, 125, 255, 0.1);
+  color: rgba(210, 228, 255, 0.92);
+}
+
+.skill-feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.skill-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  color: rgba(216, 233, 240, 0.9);
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+.skill-feature-list__check {
+  line-height: 1.2;
+  filter: drop-shadow(0 0 6px rgba(0, 200, 150, 0.32));
+}
+
+.skill-feature-card__foot {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(0, 200, 150, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.skill-feature-card__link {
+  border-color: rgba(0, 200, 150, 0.35);
+  background: rgba(0, 200, 150, 0.08);
+}
+
+.skill-feature-card__note {
+  margin: 0;
+  color: rgba(188, 255, 235, 0.84);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 991.98px) {
+  .skill-feature-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-feature-card__title {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skill-feature-card__badge {
+    position: static;
+    display: inline-flex;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-feature-card__foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+[data-theme="light"] .skill-feature-card {
+  border-color: rgba(0, 153, 116, 0.38);
+  background: linear-gradient(145deg, rgba(243, 251, 248, 0.95), rgba(236, 248, 244, 0.95));
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(0, 153, 116, 0.14),
+    0 0 30px rgba(0, 153, 116, 0.12);
+}
+
+[data-theme="light"] .skill-feature-card__subtitle {
+  color: rgba(8, 78, 62, 0.86);
+}
+
+[data-theme="light"] .skill-feature-card__label {
+  color: rgba(8, 78, 62, 0.82);
+}
+
+[data-theme="light"] .skill-feature-list li {
+  color: rgba(30, 41, 59, 0.82);
+}
+
+[data-theme="light"] .skill-feature-card__note {
+  color: rgba(8, 78, 62, 0.78);
+}
+
 .skill-badges {
   display: flex;
   flex-wrap: wrap;
