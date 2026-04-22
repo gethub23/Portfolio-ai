@@ -685,6 +685,10 @@ var cwShell = document.getElementById('cw-shell');
       el.addEventListener('mouseup', setUp);
       el.addEventListener('mouseleave', setUp);
     }
+    // Safety net: some mobile browsers expose PointerEvent but still dispatch touch events inconsistently.
+    el.addEventListener('touchstart', setDown, { passive: false });
+    el.addEventListener('touchend', setUp, { passive: false });
+    el.addEventListener('touchcancel', setUp, { passive: false });
   }
   hold('btn-left','ArrowLeft');
   hold('btn-right','ArrowRight');
@@ -698,12 +702,12 @@ var cwShell = document.getElementById('cw-shell');
     if (window.PointerEvent) {
       fb.addEventListener('pointerdown', fireTap, {passive:false});
     } else {
-      fb.addEventListener('touchstart', fireTap, { passive: false });
       fb.addEventListener('mousedown', function (e) {
         if (e.button !== 0) return;
         fireTap(e);
       });
     }
+    fb.addEventListener('touchstart', fireTap, { passive: false });
   }
 
   // ── START ─────────────────────────────────────────
@@ -740,20 +744,20 @@ var cwShell = document.getElementById('cw-shell');
           { passive: false }
         );
       } else {
-        el.addEventListener(
-          "touchstart",
-          function (e) {
-            e.preventDefault();
-            invoke();
-          },
-          { passive: false }
-        );
         el.addEventListener("mousedown", function (e) {
           if (e.button !== 0) return;
           e.preventDefault();
           invoke();
         });
       }
+      el.addEventListener(
+        "touchstart",
+        function (e) {
+          e.preventDefault();
+          invoke();
+        },
+        { passive: false }
+      );
       el.addEventListener("click", function () {
         invoke();
       });

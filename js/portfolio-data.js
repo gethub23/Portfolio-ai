@@ -31,8 +31,6 @@ window.PORTFOLIO = {
       "i18n + Media support from day one",
       "composer dev — server + queue + vite in one command",
     ],
-    github: "https://github.com/gethub23/my-project-base",
-    githubLabel: "View on GitHub",
     note: "This base saves me 2–3 days on every new project.",
   },
   skillsByCategory: {

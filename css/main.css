@@ -2404,11 +2404,8 @@ footer.site-footer {
 }
 
 /* —— Code Wars (canvas arcade + boss Q&A) —— */
-/* Do not block taps on the page while the arcade block is still scroll-hidden */
-#arcade.reveal:not(.is-visible) {
-  pointer-events: none;
-}
-
+/* Keep arcade interactions enabled on all devices, especially mobile touch. */
+#arcade.reveal:not(.is-visible),
 #arcade.reveal.is-visible {
   pointer-events: auto;
 }
@@ -2655,6 +2652,9 @@ footer.site-footer {
 #cw-retry-btn {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 4;
+  pointer-events: auto;
 }
 
 .cw-streak {
