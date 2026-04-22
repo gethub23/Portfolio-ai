@@ -8,6 +8,32 @@
   var $log;
   var $input;
   var repaired = false;
+  var terminalQuestions = [
+    {
+      id: "q1",
+      prompt: "In Laravel, which queue strategy helps keep HTTP requests fast for heavy jobs?",
+      accepted: ["dispatch", "queue", "job", "async"],
+      hint: "Think: move slow tasks out of request lifecycle.",
+    },
+    {
+      id: "q2",
+      prompt: "For real-time bids with 1000+ users, what transport is the best fit?",
+      accepted: ["websocket", "socket.io", "websockets"],
+      hint: "Think persistent two-way connection.",
+    },
+    {
+      id: "q3",
+      prompt: "What Redis pattern is commonly used to reduce repeated DB reads?",
+      accepted: ["cache aside", "cache-aside", "caching"],
+      hint: "Read-through via app logic.",
+    },
+    {
+      id: "q4",
+      prompt: "Which database index type is typically best for exact lookup by id/email?",
+      accepted: ["btree", "b-tree"],
+      hint: "Default index in MySQL for equality/range queries.",
+    },
+  ];
 
   function appendLine(text, cls) {
     var line = $('<div class="term-line"></div>');
@@ -23,9 +49,27 @@
     appendLine("  whoami     — profile snapshot");
     appendLine("  skills     — tech keywords");
     appendLine("  status     — system health (simulated)");
+    appendLine("  questions  — list terminal quiz questions");
+    appendLine("  ask <id>   — show a specific question (e.g. ask q1)");
+    appendLine('  answer <id> <text> — submit an answer (e.g. answer q1 use queues)');
     appendLine("  decode     — hint for the debug challenge");
     appendLine('  repair <json> — fix the config, e.g. repair {"status":"online","mode":"prod"}');
     appendLine("  clear      — clear output");
+  }
+
+  function findQuestionById(id) {
+    var qid = String(id || "").toLowerCase();
+    for (var i = 0; i < terminalQuestions.length; i++) {
+      if (terminalQuestions[i].id === qid) return terminalQuestions[i];
+    }
+    return null;
+  }
+
+  function answerMatches(question, text) {
+    var normalized = String(text || "").toLowerCase();
+    return question.accepted.some(function (needle) {
+      return normalized.indexOf(String(needle).toLowerCase()) !== -1;
+    });
   }
 
   function runCommand(raw) {
@@ -71,6 +115,43 @@
       appendLine("CONFIG_OK: false", "term-warn");
       appendLine('last payload: { "status": "offline", "mode": null }', "term-warn");
       appendLine("hint: bring status online with a valid mode string.", "term-dim");
+      return;
+    }
+    if (cmd === "questions") {
+      appendLine("Terminal quiz bank:", "term-accent");
+      terminalQuestions.forEach(function (q) {
+        appendLine("  " + q.id + " — " + q.prompt, "term-dim");
+      });
+      appendLine('Use "ask q1" then "answer q1 <text>".', "term-dim");
+      return;
+    }
+    if (cmd === "ask") {
+      var q = findQuestionById(parts[1]);
+      if (!q) {
+        appendLine('Question not found. Try: questions, then ask q1..q4', "term-warn");
+        return;
+      }
+      appendLine(q.id.toUpperCase() + ": " + q.prompt, "term-accent");
+      appendLine("Hint: " + q.hint, "term-dim");
+      return;
+    }
+    if (cmd === "answer") {
+      var aq = findQuestionById(parts[1]);
+      var answerText = line.split(/\s+/).slice(2).join(" ");
+      if (!aq) {
+        appendLine('Question not found. Use "questions" first.', "term-warn");
+        return;
+      }
+      if (!answerText) {
+        appendLine("Missing answer text. Example: answer " + aq.id + " use queue jobs", "term-warn");
+        return;
+      }
+      if (answerMatches(aq, answerText)) {
+        appendLine("Correct direction. That's production-grade thinking.", "term-success");
+      } else {
+        appendLine("Not quite. Try a backend-specific keyword.", "term-warn");
+        appendLine("Hint: " + aq.hint, "term-dim");
+      }
       return;
     }
     if (cmd === "decode") {
@@ -134,7 +215,8 @@
       }
     });
 
-    appendLine('Type "help" to explore a tiny simulated shell.', "term-dim");
+    appendLine('Type "help" to explore the terminal commands.', "term-dim");
+    appendLine('Try: "questions" to start the terminal quiz.', "term-dim");
   }
 
   $(init);
