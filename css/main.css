@@ -2645,6 +2645,18 @@ footer.site-footer {
   background: var(--bg-card);
 }
 
+/* On small screens the mobile controls can overlap the start overlay.
+   Disable interactions until the game starts (sd-shell--playing). */
+.sd-shell:not(.sd-shell--playing) .sd-controls {
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.sd-shell.sd-shell--playing .sd-controls {
+  pointer-events: auto;
+  opacity: 1;
+}
+
 .sd-mob-btn {
   min-width: 2.75rem;
   min-height: 2.75rem;
