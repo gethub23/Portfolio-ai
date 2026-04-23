@@ -20,6 +20,8 @@ window.PORTFOLIO = {
     subtitle: "My personal starter — cloned at the start of every new project",
     description:
       "A production-ready Laravel 11 + PHP 8.2 fullstack starter with versioned API, reusable Admin panel, and clean architecture patterns baked in from day one.",
+    github: "https://github.com/gethub23/my-project-base",
+    githubLabel: "Open source",
     stack: ["Laravel 11", "PHP 8.2", "Vite", "Tailwind v4", "MySQL", "Redis", "Queue"],
     packages: ["Spatie Media", "Laravel Translatable", "Maatwebsite Excel", "PHPWord"],
     includes: [
@@ -31,7 +33,7 @@ window.PORTFOLIO = {
       "i18n + Media support from day one",
       "composer dev — server + queue + vite in one command",
     ],
-    note: "This base saves me 2–3 days on every new project.",
+    note: "This base saves me effort and days of work on every new project.",
   },
   skillsByCategory: {
     Languages: [

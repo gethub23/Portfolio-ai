@@ -777,10 +777,29 @@ body::before {
 }
 
 .skill-feature-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   border-color: rgba(0, 200, 150, 0.35);
   background: rgba(0, 200, 150, 0.08);
 }
 
+.skill-feature-card__link-icon {
+  font-size: 1rem;
+  color: rgba(210, 228, 255, 0.95);
+}
+
+.skill-feature-card__link:hover .skill-feature-card__link-icon {
+  color: #ffffff;
+}
+
+[data-theme="light"] .skill-feature-card__link-icon {
+  color: rgba(15, 23, 42, 0.78);
+}
+
+[data-theme="light"] .skill-feature-card__link:hover .skill-feature-card__link-icon {
+  color: rgba(15, 23, 42, 0.92);
+}
 .skill-feature-card__note {
   margin: 0;
   color: rgba(188, 255, 235, 0.84);

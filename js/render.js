@@ -98,6 +98,7 @@
           '      <a class="btn btn-sm btn-glass skill-feature-card__link" href="' +
           escapeAttr(f.github) +
           '" target="_blank" rel="noopener noreferrer">' +
+          '<i class="bi bi-github skill-feature-card__link-icon" aria-hidden="true"></i>' +
           escapeHtml(f.githubLabel || "GitHub") +
           "</a>";
       }
