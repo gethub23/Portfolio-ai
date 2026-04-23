@@ -2648,11 +2648,11 @@ footer.site-footer {
 /* On small screens the mobile controls can overlap the start overlay.
    Disable interactions until the game starts (sd-shell--playing). */
 .sd-shell:not(.sd-shell--playing) .sd-controls {
-  display: none;
+  display: none !important;
 }
 
 .sd-shell.sd-shell--playing .sd-controls {
-  display: flex;
+  display: flex !important;
   pointer-events: auto;
   opacity: 1;
 }
