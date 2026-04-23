@@ -6,11 +6,24 @@
   "use strict";
 
   function boot() {
-var cwShell = document.getElementById('cw-shell');
-    const canvas = document.getElementById('game-canvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = 720, H = 400;
+    try {
+      var cwShell = document.getElementById("cw-shell");
+      const canvas = document.getElementById("game-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        var ov0 = document.getElementById("game-overlay");
+        if (ov0) {
+          ov0.style.display = "flex";
+          ov0.innerHTML =
+            '<div class="sd-overlay-kicker font-monospace small text-uppercase sd-overlay-kicker--start">Backend arcade</div>' +
+            '<div class="sd-overlay-title h4 mb-0">Canvas not supported</div>' +
+            '<p class="sd-overlay-meta small text-muted mb-0 sd-overlay-hint">Your browser does not support the canvas 2D context. Try updating the browser.</p>';
+        }
+        return;
+      }
+      const W = 720,
+        H = 400;
 
   const C = {
     bg:'#060a10', grid:'#0c1220', accent:'#00c896',
@@ -773,6 +786,20 @@ var cwShell = document.getElementById('cw-shell');
 
     bindPrimaryTap(document.getElementById("cw-start-btn"), startGame);
     window.startCodeWars = startGame;
+    } catch (err) {
+      var ov = document.getElementById("game-overlay");
+      if (ov) {
+        ov.style.display = "flex";
+        ov.innerHTML =
+          '<div class="sd-overlay-kicker font-monospace small text-uppercase sd-overlay-kicker--start">Backend arcade</div>' +
+          '<div class="sd-overlay-title h4 mb-0">Game failed to start</div>' +
+          '<p class="sd-overlay-meta small text-muted mb-0 sd-overlay-hint">Please refresh the page. If the issue persists, try a different browser.</p>';
+      }
+      try {
+        // eslint-disable-next-line no-console
+        console.error("Code Wars boot failed", err);
+      } catch (_) {}
+    }
   }
 
   if (document.readyState === "loading") {
