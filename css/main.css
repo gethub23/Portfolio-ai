@@ -2615,6 +2615,9 @@ footer.site-footer {
   gap: 1rem;
   padding: 1.5rem;
   overflow-y: auto;
+  max-height: 100%;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .sd-overlay::-webkit-scrollbar {
@@ -2635,7 +2638,15 @@ footer.site-footer {
     justify-content: flex-start;
     padding: 1rem;
     gap: 0.75rem;
+    padding-bottom: 4.25rem;
   }
+}
+
+/* Keep the start button visible on short mobile viewports. */
+.sd-overlay #cw-start-btn {
+  position: sticky;
+  bottom: 0.75rem;
+  z-index: 5;
 }
 .sd-overlay-kicker {
   letter-spacing: 0.18em;
